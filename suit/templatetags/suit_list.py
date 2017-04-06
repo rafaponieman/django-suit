@@ -123,6 +123,8 @@ def suit_list_filter_select(cl, spec):
         spec.parameter_name
     matched_key = field_key
     for choice in choices:
+        if 'query_string' not in choice:
+            continue
         query_string = choice['query_string'][1:]
         query_parts = parse_qs(query_string)
 
